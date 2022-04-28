@@ -3,7 +3,7 @@ const express = require("express");
 
 // create express server
 const server = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 //make server listen
 server.listen(PORT, () => {
