@@ -39,9 +39,7 @@ server.get("/students", (req, res) => {
     }
 
     return res
-
       .status(404)
-
       .send({ error: `Never heard of ${name}... try again` });
   }
 
@@ -85,9 +83,9 @@ server.get("/students/name/:name", (req, res) => {
 server.get("/students/interests/:interests", (req, res) => {
   const { interests } = req.params;
   if (interests) {
-    const filteredStudents = Object.values(students).filter(
-      (student) => student[interests].toLowerCase() === interests.toLowerCase()
-    );
+    const filteredStudents = Object.values(students).filter((student) => {
+      return student.interests.includes(interests.toLowerCase());
+    });
     return res.send(filteredStudents);
   }
 });
