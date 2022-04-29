@@ -13,10 +13,15 @@ server.listen(PORT, () => {
 const destinations = [];
 const students = {
   dao: { name: "Dao", interests: ["food"], city: "Sac Town" },
-  nikko: { name: "Nikko", interests: ["food"], city: "Detroit" },
+  nikko: { name: "Nikko", interests: ["beans"], city: "Detroit" },
+  mannie: {
+    name: "Mannie",
+    interests: ["soccer", "cooking", "fifa", "reading"],
+    city: "Atlanta",
+  },
   will: {
     name: "Will",
-    interests: ["camaro", "frontier", "wrangler", "bananas"],
+    interests: ["soccer", "frontier", "wrangler", "bananas"],
     city: "Detroit",
   },
 };
@@ -37,7 +42,7 @@ server.get("/students", (req, res) => {
 
       .status(404)
 
-      .send({ error: `Student by the name of ${name} not found` });
+      .send({ error: `Never heard of ${name}... try again` });
   }
 
   let filteredStudents = Object.values(students);
